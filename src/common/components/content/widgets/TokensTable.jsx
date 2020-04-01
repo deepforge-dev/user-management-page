@@ -23,7 +23,7 @@ export default class TokensTable extends Component {
             tokenName: '',
             hideConfirmBtn: false,
             cancelBtnMessage: 'Cancel',
-            modalTitle: 'Generate Tokens',
+            modalTitle: 'Generate a new access token',
             errorMessage: '',
         };
         this.showNewTokenModal = this.showNewTokenModal.bind(this);
@@ -71,7 +71,7 @@ export default class TokensTable extends Component {
         this.setState({
             showModal: true,
             modalMessage: this.getTokenNameForm(),
-            modalTitle: 'Generate Tokens',
+            modalTitle: 'Generate a new access token',
             hideConfirmBtn: false,
             hideCancelBtn: false,
         });
@@ -107,7 +107,7 @@ export default class TokensTable extends Component {
     getTokenNameForm(showError=false, errorMsg) {
         return (
             <div className="form-group form-inline">
-                <label htmlFor="tokenName"> DisplayName: </label>
+                <label htmlFor="tokenName"> Token Name: </label>
                 <input type="text"
                     onChange={this.tokenNameChanged.bind(this)}
                     autoFocus={true}
@@ -136,8 +136,6 @@ export default class TokensTable extends Component {
     getTokenContent(id, name) {
         return (
             <div>
-                <span className='text-danger'>Token ID will only be displayed once.</span>
-                <br/><br/>
                 Token Name: <span className="text-info">{name || 'No Name'}</span>
                 <br/><br/>
                 ID: <span className="text-info"> {id} </span>
@@ -151,6 +149,8 @@ export default class TokensTable extends Component {
                         onClick={this.copyTextToClipBoard.bind(this, id)}
                     />
                 </OverlayTrigger>
+                <br/>
+                <span className='text-danger'>Token ID will only be displayed once.</span>
             </div>
         );
     }
@@ -161,7 +161,8 @@ export default class TokensTable extends Component {
                 this.displayTokenModal(res.body);
             })
             .catch(err => {
-                const modalMessage = this.getTokenNameForm(true, err.message)
+                const errMessage = err.status === 400 ? 'A token with the same name exists': err.message;
+                const modalMessage = this.getTokenNameForm(true, errMessage);
                 this.setState(() => ({
                     showModal: true,
                     modalMessage: modalMessage,
@@ -177,7 +178,7 @@ export default class TokensTable extends Component {
             <div>
                 <div className="box-header" style={{paddingBottom: "10px"}}>
                     <h3 className="box-title" style={{fontSize: 28}}>
-                        <i className="fa fa-key"/> {' Tokens'}
+                        <i className="fa fa-key"/> {'Access Tokens'}
                     </h3>
 
                     <Button className="pull-right"

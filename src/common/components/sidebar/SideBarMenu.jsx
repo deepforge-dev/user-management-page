@@ -34,7 +34,7 @@ export default class SideBarMenu extends Component {
 
                 <li className={/tokens/.test(pathname) ? 'active': ''}>
                     <Link to={`${basePath}tokens`} style={{textDecoration: "none"}}>
-                        <i className="fa fa-key"/><span>Tokens</span>
+                        <i className="fa fa-key"/><span>Access Tokens</span>
                     </Link>
                 </li>
 
