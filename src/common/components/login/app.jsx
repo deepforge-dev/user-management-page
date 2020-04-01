@@ -34,6 +34,7 @@ export default class App extends Component {
             <div className="login-box">
                 <div className="login-logo">
                     <img src={IMAGE_ROUTES.deepforgeIcon}/><br/>
+                    <b>DeepForge</b>Login
                 </div>
 
                 {FormWithBasePath}

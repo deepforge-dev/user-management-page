@@ -25,8 +25,8 @@ export default class Footer extends Component {
                     <a href="https://www.isis.vanderbilt.edu" target="_blank">
                         &nbsp;ISIS
                     </a>
-                    <a href="https://www.webgme.org" target="_blank">
-                        &nbsp;WebGME
+                    <a href="https://www.deepforge.org" target="_blank">
+                        &nbsp;DeepForge
                     </a>
                 </strong>
 
