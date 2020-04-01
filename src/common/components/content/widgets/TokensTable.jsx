@@ -161,8 +161,8 @@ export default class TokensTable extends Component {
                 this.displayTokenModal(res.body);
             })
             .catch(err => {
-                const errMessage = err.status === 400 ? 'A token with the same name exists': err.message;
-                const modalMessage = this.getTokenNameForm(true, errMessage);
+                const errMessage = 'Token generation failed';
+                const modalMessage = this.getTokenNameForm(true, err.response.body || errMessage);
                 this.setState(() => ({
                     showModal: true,
                     modalMessage: modalMessage,

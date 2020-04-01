@@ -15,6 +15,7 @@ import EditorLink from './navigation_bar/EditorLink';
 import {capitalizeFirstLetter} from '../../../client/utils/utils';
 import {Header as STYLE} from '../../../client/style';
 import {getUserDisplayName} from '../../../client/utils/usersUtils';
+import { IMAGE_ROUTES } from '../../../client/utils/constants';
 
 export default class Header extends React.Component {
 
@@ -63,8 +64,8 @@ export default class Header extends React.Component {
             <header className="main-header">
 
                 <Link to={`${basePath}`} className="logo" style={{textDecoration: "none"}}>
-                    <span className="logo-mini"><b>GME</b></span>
-                    <span className="logo-lg"><b>GME</b>Profile</span>
+                    <span className="logo-mini"><img src={IMAGE_ROUTES.deepforgeIcon}/></span>
+                    <span className="logo-lg"><img src={IMAGE_ROUTES.deepforgeLogo}/></span>
                 </Link>
 
                 <nav className="navbar navbar-static-top" role="navigation">
