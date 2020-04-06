@@ -115,28 +115,27 @@ export default class TokensPage extends Component {
         );
     }
 
-    onGenerateToken() {
+    async onGenerateToken() {
         const { dispatch } = this.props;
-        Promise.resolve(this.generateAccessToken(this.state.tokenName)
-            .then(res => {
-                const token = res.body;
-                this.setState({
-                    showModal: true,
-                    modalMessage: this.getTokenContent(token.id, token.displayName),
-                    tokenName: null,
-                    hideModalConfirmBtn: true,
-                    cancelBtnMessage: 'Close',
-                    modalTitle: 'Generated Token',
-                    showLoginFieldInModal: false,
-                });
-                dispatch(fetchTokens());
-            })
-            .catch(err => {
-                this.setState({
-                    isValidTokenName: err.status !== 400,
-                    invalidTokenMessage: 'Name already taken',
-                });
-            }));
+        try {
+            const {body: token} = await this.generateAccessToken(this.state.tokenName);
+            this.setState({
+                showModal: true,
+                modalMessage: this.getTokenContent(token.id, token.displayName),
+                tokenName: null,
+                hideModalConfirmBtn: true,
+                cancelBtnMessage: 'Close',
+                modalTitle: 'Generated Token',
+                showLoginFieldInModal: false,
+            });
+            dispatch(fetchTokens());
+        } catch (err) {
+            const {text: message} = err.response;
+            this.setState({
+                isValidTokenName: err.status < 400,
+                invalidTokenMessage: message || 'Name already taken',
+            });
+        }
     }
 
     render() {
