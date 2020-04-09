@@ -3,6 +3,9 @@
  * @author patrickkerrypei / https://github.com/patrickkerrypei
  */
 
+import deepforgeLogo from '../style/img/deepforge-logo.png';
+import deepforgeIcon from '../style/img/deepforge-icon.png';
+
 // Theme colors:
 export const THEME_COLORS = {
     blue: 'rgb(60, 141, 188)',
@@ -44,8 +47,9 @@ export const TABLE_FIELDS = {
     }
 };
 
+
 // Deepforge Image Routes
-export const IMAGE_ROUTES = {
-    deepforgeLogo: '/extlib/src/common/styles/img/deepforge-logo.png',
-    deepforgeIcon: '/extlib/src/common/styles/img/deepforge-icon.png',
+export const DEEPFORGE_IMAGES = {
+    deepforgeLogo: deepforgeLogo,
+    deepforgeIcon: deepforgeIcon,
 };

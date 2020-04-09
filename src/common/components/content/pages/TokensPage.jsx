@@ -115,10 +115,10 @@ export default class TokensPage extends Component {
         );
     }
 
-    async onGenerateToken() {
+    onGenerateToken() {
         const { dispatch } = this.props;
-        try {
-            const {body: token} = await this.generateAccessToken(this.state.tokenName);
+        this.generateAccessToken(this.state.tokenName).then(res => {
+            const token = res.body;
             this.setState({
                 showModal: true,
                 modalMessage: this.getTokenContent(token.id, token.displayName),
@@ -129,13 +129,14 @@ export default class TokensPage extends Component {
                 showLoginFieldInModal: false,
             });
             dispatch(fetchTokens());
-        } catch (err) {
+        }).catch(err => {
             const {text: message} = err.response;
             this.setState({
                 isValidTokenName: err.status < 400,
                 invalidTokenMessage: message || 'Name already taken',
             });
-        }
+        });
+
     }
 
     render() {
