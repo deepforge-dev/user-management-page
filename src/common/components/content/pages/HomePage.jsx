@@ -16,7 +16,7 @@ import {fetchOrganizationsIfNeeded} from '../../../actions/organizations';
 // import {getUserIconSource} from '../../../../client/utils/utils';
 // Style
 import {HomePage as STYLE} from '../../../../client/style';
-import { IMAGE_ROUTES } from '../../../../client/utils/constants';
+import { DEEPFORGE_IMAGES } from '../../../../client/utils/constants';
 // var IMG_CONTAINER_STYLE = {
 //     textAlign: "center",
 //     display: "flex",
@@ -67,7 +67,7 @@ export default class HomePage extends Component {
                                         </Popover>}>
                                         <a href={mountedPath + "/"} style={LINK_STYLE}>
                                             <img width="128" height="128"
-                                                 src={IMAGE_ROUTES.deepforgeIcon}
+                                                 src={DEEPFORGE_IMAGES.deepforgeIcon}
                                                 alt="Image" style={{margin: "5px 10px 10px 10px"}}/>
                                         </a>
                                     </OverlayTrigger>
