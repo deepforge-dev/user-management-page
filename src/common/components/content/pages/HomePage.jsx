@@ -75,7 +75,7 @@ export default class HomePage extends Component {
                                 <Media.Body>
                                     <p>You are currently at the profile page for DeepForge.</p>
                                     <p>Here can you view and control the
-                                        access level of your Deepforge projects, see what other users are present
+                                        access level of your DeepForge projects, see what other users are present
                                         on this deployment
                                         and add them to your organizations.</p>
                                     <p>To start using the editor <OverlayTrigger
