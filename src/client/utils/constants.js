@@ -48,7 +48,7 @@ export const TABLE_FIELDS = {
 };
 
 
-// Deepforge Image Routes
+// DeepForge Image Routes
 export const DEEPFORGE_IMAGES = {
     deepforgeLogo: deepforgeLogo,
     deepforgeIcon: deepforgeIcon,
